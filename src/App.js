@@ -15,7 +15,7 @@ function App() {
       <div className="me">
         {" "}
         <a
-          href="https://github.com/apilynb/the-weather-app"
+          href="https://github.com/apilynb/react-weather"
           target="_blank"
           rel="noreferrer"
           className="gitHubLink"
