@@ -1,7 +1,10 @@
 body {
+  display: block;
+  margin: 0 auto !important;
   text-align: center;
-  margin-top: 20px;
+  
   max-width: 650px;
+  
 }
 
 .searchBar {

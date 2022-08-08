@@ -7,7 +7,7 @@ import Parent from "./Parent";
 function App() {
   return (
     <div>
-      <div className="App container border rounded shadow p-3 mb-5 bg-body rounded p-4 weatherApp">
+      <div className="App container border rounded shadow p-3 mb-5 mt-4 bg-body rounded p-4 weatherApp">
         <Container>
           <Parent />
         </Container>
