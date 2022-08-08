@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
+import Parent from "./Parent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <div>
+      <div className="App container border rounded shadow p-3 mb-5 bg-body rounded p-4 weatherApp">
+        <Container>
+          <Parent />
+        </Container>
+      </div>
+      <div className="me">
+        {" "}
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/apilynb/the-weather-app"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
+          className="gitHubLink"
         >
-          Learn React
-        </a>
-      </header>
+          Open Source Code
+        </a>{" "}
+        by Apilyn Bonny
+      </div>
     </div>
   );
 }
