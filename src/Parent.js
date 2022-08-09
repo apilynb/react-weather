@@ -1,14 +1,12 @@
 import React from "react";
-import MiddleSection from "./MiddleSection";
-import SearchEngine from "./SearchEngine";
+import Weather from "./Weather";
 import WeeklyForecast from "./WeeklyForecast";
 
 
 export default function Parent() {
   return (
     <div>
-      <SearchEngine />
-      <MiddleSection />
+      <Weather defaultCity="New York" />
       <div className="row">
         <br />
         <br />
@@ -19,6 +17,7 @@ export default function Parent() {
         <WeeklyForecast day="Fri" />
         <WeeklyForecast day="Sat" />
       </div>
+      <br />
     </div>
   );
 }
