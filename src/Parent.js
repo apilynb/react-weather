@@ -3,7 +3,13 @@ import Weather from "./Weather";
 import WeeklyForecast from "./WeeklyForecast";
 
 
+
+
 export default function Parent() {
+
+
+
+  
   return (
     <div>
       <Weather defaultCity="New York" />
@@ -18,6 +24,7 @@ export default function Parent() {
         <WeeklyForecast day="Sat" />
       </div>
       <br />
+  
     </div>
   );
 }

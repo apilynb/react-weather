@@ -2,30 +2,33 @@ import axios from "axios";
 import React, { useState } from "react";
 import "./App.css";
 import sunny from "./sunny.png";
+import FormattedDate from "./FormattedDate";
 
 export default function SearchEngine(props) {
-const [weatherData, setWeatherData] = useState({ready: false});
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [displayIcon, setDisplayIcon] = useState(" ");
 
-function handleSubmit (response) {
-console.log(response.data);
-setWeatherData({
-  ready: true,
-  mainTemp: Math.round(response.data.main.temp),
-  wind: Math.round(response.data.wind.speed),
-  city: response.data.name, 
-  humidity: response.data.main.humidity,
-  mainMax: Math.round(response.data.main.temp_max),
-  mainMin: Math.round(response.data.main.temp_min),
-  feelLike: Math.round(response.data.main.feels_like),
-  description: response.data.weather[0].description,
-});
+  function handleSubmit(response) {
+    console.log(response.data);
 
-}
+    setWeatherData({
+      ready: true,
+      mainTemp: Math.round(response.data.main.temp),
+      wind: Math.round(response.data.wind.speed),
+      city: response.data.name,
+      humidity: response.data.main.humidity,
+      mainMax: Math.round(response.data.main.temp_max),
+      mainMin: Math.round(response.data.main.temp_min),
+      feelLike: Math.round(response.data.main.feels_like),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      date: new Date(response.data.dt * 1000)
+    });
+  }
 
   if (weatherData.ready) {
     return (
       // Search Engine for the Weather App
-
       <div className="Weather">
         <div className="row">
           <div className="col-10">
@@ -59,9 +62,9 @@ setWeatherData({
           <div className="col-6 todayTemp">
             <div className="main">
               <img
-                className="mainImage icons img-fluid"
+                className="mainImage icons img-fluid text-capitalize"
                 src={sunny}
-                alt="Cloudy Icon"
+                alt={weatherData.description}
               />{" "}
               <span className="mainTemp">{weatherData.mainTemp}</span>
               <span className="convertTemp ">
@@ -83,7 +86,9 @@ setWeatherData({
           <div className="col-6 leftBody">
             <div className="col-12 cityName">
               <h1 id="city-name">{weatherData.city}</h1>
-              <div className="dateAndTime">Thursday 4:07 PM</div>
+              <div className="dateAndTime">
+                <FormattedDate date={weatherData.date} />
+                </div>
             </div>
             <div className="col-12 todayWeather text-capitalize">
               {weatherData.description}
@@ -109,8 +114,8 @@ setWeatherData({
     let units = "imperial";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     console.log(apiUrl);
-  axios.get(apiUrl).then(handleSubmit);
-  
-    return "Loading..."
+    axios.get(apiUrl).then(handleSubmit);
+    
+    return "Loading...";
   }
 }
