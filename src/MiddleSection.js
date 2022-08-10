@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function MiddleSection(props) {
   return (
@@ -7,11 +8,8 @@ export default function MiddleSection(props) {
       <div className="row">
         <div className="col-6 todayTemp">
           <div className="main">
-            <img
-              className="mainImage icons img-fluid text-capitalize"
-              src={props.info.icon}
-              alt={props.info.description}
-            />{" "}
+            <WeatherIcon code={props.info.icon} alt={props.info.description}/>
+            {" "}
             <span className="mainTemp">{props.info.mainTemp}</span>
             <span className="convertTemp ">
               {" "}
