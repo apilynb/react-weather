@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemp from "./WeatherTemp";
 
 export default function MiddleSection(props) {
   return (
@@ -8,23 +9,12 @@ export default function MiddleSection(props) {
       <div className="row">
         <div className="col-6 todayTemp">
           <div className="main">
-            <WeatherIcon code={props.info.icon} alt={props.info.description}/>
-            {" "}
-            <span className="mainTemp">{props.info.mainTemp}</span>
-            <span className="convertTemp ">
-              {" "}
-              <a className="fDegrees active" href="/">
-                °F
-              </a>{" "}
-              |{" "}
-              <a className="cDegrees" href="/">
-                °C
-              </a>
-            </span>
-          </div>
-          <div className="todayLoHi">
-            <span className="todayLow">{props.info.mainMin}°</span> /
-            <span className="high">{props.info.mainMax}°</span>
+            <WeatherIcon code={props.info.icon} alt={props.info.description} />{" "}
+            <WeatherTemp
+              fahrenheit={props.info.mainTemp}
+              high={props.info.mainMax}
+              low={props.info.mainMin}
+            />
           </div>
         </div>
         <div className="col-6 leftBody">

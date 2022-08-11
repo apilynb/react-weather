@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import "./App.css";
 import MiddleSection from "./MiddleSection";
+import { BallTriangle } from "react-loader-spinner";
 
-export default function Weather (props) {
+export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-
 
   function handleResponse(response) {
     setWeatherData({
@@ -24,22 +24,22 @@ export default function Weather (props) {
     });
   }
 
-  function updateCity (event) {
+  function updateCity(event) {
     console.log(city);
-    setCity(event.target.value)
+    setCity(event.target.value);
   }
- 
-function handleSubmit(event) {
-  event.preventDefault();
-  search(city);
-}
 
-function search () {
-let apiKey = `8ca7dd4e61360b90fb66918853670e48`;
-let units = "imperial";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-axios.get(apiUrl).then(handleResponse);
-}
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+
+  function search() {
+    let apiKey = `8ca7dd4e61360b90fb66918853670e48`;
+    let units = "imperial";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   if (weatherData.ready) {
     return (
@@ -72,12 +72,16 @@ axios.get(apiUrl).then(handleResponse);
             </button>
           </div>
         </div>
-        <MiddleSection info={weatherData}/>
+        <MiddleSection info={weatherData} />
       </div>
     );
   } else {
     search(city);
-    
-    return "Loading...";
+
+    return (
+      <div>
+        <BallTriangle color="#00BFFF" height={80} width={80} />
+      </div>
+    );
   }
 }
