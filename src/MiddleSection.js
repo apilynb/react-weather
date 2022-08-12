@@ -2,6 +2,7 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemp from "./WeatherTemp";
+import WeeklyForecast from "./WeeklyForecast";
 
 export default function MiddleSection(props) {
   return (
@@ -40,6 +41,10 @@ export default function MiddleSection(props) {
           </div>
         </div>
       </div>
+      <div className="row">
+        <WeeklyForecast coords={props.info.coord}/>
+      </div>
     </div>
   );
 }
+

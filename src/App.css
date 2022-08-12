@@ -135,7 +135,7 @@ img {
   text-decoration: none;
 }
 
-.WeatherIcon {
+.WeatherIcon ReactAnimatedWeather {
   position: relative;
   top: 10px;
   left: 10px;
