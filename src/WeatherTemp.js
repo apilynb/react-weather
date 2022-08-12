@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TempContext } from "./Helper";
 
 export default function WeatherTemp(props) {
-  const [unit, setUnit] = useState("fahrenheit");
+  const [unit, setUnit] = useState("fah");
+  const {celcius, setCelcius} = useContext(TempContext);
 
   function convertToCelcius(event) {
     event.preventDefault();
-    setUnit("celcius");
+    setUnit("cel");
+    setCelcius(true)
   }
 
   function convertToFahrenheit(event) {
     event.preventDefault();
-    setUnit("fahrenheit");
+    setUnit("fah");
+    setCelcius(false);
   }
 
-  if (unit === "fahrenheit") {
+{celcius ? setCelcius(true) : setCelcius(false) }
+
+  if (unit === "fah") {
     return (
       <span>
         <span className="WeatherTemp">
