@@ -32,7 +32,7 @@ export default function WeatherForecastDay(props) {
   function celciusMaxTemp() {
     let maxTemp = Math.round(props.data.temp.max);
     let celciusMaxTemp = (maxTemp - 32) * 5 / 9;
-    console.log(celciusMaxTemp)
+    setCelcius(true)
     return `${Math.round(celciusMaxTemp)}°`;
   }
 
