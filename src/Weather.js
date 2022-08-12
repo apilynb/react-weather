@@ -47,7 +47,7 @@ export default function Weather(props) {
       // Search Engine for the Weather App
       <div className="Weather">
         <div className="row">
-          <div className="col-10">
+          <div className="col">
             <form id="city-search" onSubmit={handleSubmit}>
               <div className="input-group mb-3">
                 <input
@@ -66,11 +66,6 @@ export default function Weather(props) {
                 />
               </div>
             </form>
-          </div>
-          <div className="col-2">
-            <button type="button" className="btn btn-dark current">
-              Current
-            </button>
           </div>
         </div>
         <MiddleSection info={weatherData} />
