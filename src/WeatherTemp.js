@@ -27,7 +27,7 @@ export default function WeatherTemp(props) {
           </span>
         </span>
         <div className="todayLoHi">
-          <span className="todayLow">{props.low}°</span> /
+          <span className="todayLow">{props.low}°</span>/
           <span className="high">{props.high}°</span>
         </div>
       </span>
