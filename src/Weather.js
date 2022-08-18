@@ -60,7 +60,7 @@ export default function Weather(props) {
                   onChange={updateCity}
                 />
                 <input
-                  className="btn btn-outline-secondary shadow-sm"
+                  className=" submit btn btn-outline-secondary shadow-sm"
                   type="submit"
                   id="button-addon2"
                 />

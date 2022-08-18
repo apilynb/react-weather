@@ -8,7 +8,7 @@ function App() {
   const [celcius, setCelcius] = useState(false);
   return (
     <div>
-      <div className="App container border rounded shadow p-3 mb-5 mt-4 bg-body rounded p-4 weatherApp">
+      <div className="App container border rounded shadow p-3 mb-5 mt-4 rounded p-4 weatherApp">
         <TempContext.Provider value={{ celcius, setCelcius }}>
           <Weather defaultCity="New York" />
         </TempContext.Provider>
