@@ -3,6 +3,8 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemp from "./WeatherTemp";
 import WeeklyForecast from "./WeeklyForecast";
+import FeelLike from "./FeelLike";
+import WindSpeed from "./WindSpeed";
 
 export default function MiddleSection(props) {
   return (
@@ -30,10 +32,10 @@ export default function MiddleSection(props) {
           </div>
           <div className="col-6 weatherDetails ">
             <span className="misc">Feel Like: </span>
-            <span className="feelLike">{props.info.feelLike}°</span>
+            <span className="feelLike"><FeelLike info={props.info.feelLike} /> </span>
             <br />
             <span className="misc">Wind Speed: </span>
-            <span className="windSpeed">{props.info.wind} mph</span>
+            <span className="windSpeed"> <WindSpeed info={props.info.wind} /> </span>
             <br />
             <span className="misc">Humidity: </span>
             <span className="humidity">{props.info.humidity}%</span>
